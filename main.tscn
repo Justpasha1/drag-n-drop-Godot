@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnvpr2jkx38ec"]
+
+[ext_resource type="PackedScene" uid="uid://ir0hgwaaw6mn" path="res://frame.tscn" id="1_0keep"]
+[ext_resource type="PackedScene" uid="uid://3my5ptpayppc" path="res://card.tscn" id="2_sa0go"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_0keep")]
+position = Vector2(320, 512)
+
+[node name="Sprite2D2" parent="." instance=ExtResource("1_0keep")]
+position = Vector2(576, 512)
+
+[node name="card" parent="." instance=ExtResource("2_sa0go")]
+position = Vector2(480, 248)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://3my5ptpayppc"]
+
+[ext_resource type="Texture2D" uid="uid://bwvtjuwk1vajh" path="res://icon.svg" id="1_s4a1i"]
+[ext_resource type="Script" path="res://card.gd" id="2_6uj8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vplr1"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g468k"]
+size = Vector2(100, 100)
+
+[node name="card" type="Sprite2D" groups=["card"]]
+texture = ExtResource("1_s4a1i")
+script = ExtResource("2_6uj8a")
+
+[node name="Area2D" type="Area2D" parent="." groups=["card"]]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("RectangleShape2D_vplr1")
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_g468k")
+target_position = Vector2(0, 0)
+max_results = 1
+collision_mask = 2
+collide_with_areas = true
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
